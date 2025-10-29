@@ -1,0 +1,433 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #0084ff;
+    --secondary-color: #f0f2f5;
+    --background-color: #ffffff;
+    --sidebar-bg: #f8f9fa;
+    --text-primary: #1c1e21;
+    --text-secondary: #65676b;
+    --message-sent: #0084ff;
+    --message-received: #f0f0f0;
+    --border-color: #e4e6eb;
+    --success-color: #00d600;
+    --error-color: #ff4444;
+}
+
+[data-theme="dark"] {
+    --primary-color: #0084ff;
+    --secondary-color: #242526;
+    --background-color: #18191a;
+    --sidebar-bg: #242526;
+    --text-primary: #e4e6eb;
+    --text-secondary: #b0b3b8;
+    --message-sent: #0084ff;
+    --message-received: #3e4042;
+    --border-color: #3e4042;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app-container{
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar{
+    width: 300px;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header{
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-profile{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.user-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.username{
+    font-weight: 600;
+}
+
+.status{
+    font-size: 12px;
+    color: var(--success-color);
+}
+
+.sidebar-actions{
+    display: flex;
+    gap: 8px;
+}
+
+.active-users{
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.active-users h3{
+    margin-bottom: 15px;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.users-list{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.user-item{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.user-item:hover{
+    background-color: var(--secondary-color);
+}
+
+.user-status{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--success-color);
+}
+
+.chat-info{
+    padding: 20px;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.main-chat{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header{
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background-color);
+}
+
+.chat-info{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.chat-avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.chat-actions{
+    display: flex;
+    gap: 8px;
+}
+
+.messages-container{
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.welcome-message{
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 40px 20px;
+}
+
+.welcome-message i{
+    font-size: 48px;
+    margin-bottom: 16px;
+    color: var(--primary-color);
+}
+
+.message{
+    max-width: 70px;
+    padding: 12px 16px;
+    border-radius: 18px;
+    margin-bottom: 8px;
+    position: relative;
+    animation: messageAppear 0.3s ease-out;
+}
+
+@keyframes messageAppear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message.sent{
+    align-self: self-end;
+    background-color: var(--message-sent);
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+
+.message.received {
+    align-self: flex-start;
+    background-color: var(--message-received);
+    color: var(--text-primary);
+    border-bottom-left-radius: 4px;
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+    font-size: 12px;
+}
+
+.message-sender {
+    font-weight: 600;
+}
+
+.message-time {
+    opacity: 0.8;
+    font-size: 11px;
+}
+
+.message-content {
+    word-wrap: break-word;
+    line-height: 1.4;
+}
+
+.system-message {
+    align-self: center;
+    background-color: var(--secondary-color);
+    color: var(--text-secondary);
+    padding: 8px 16px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-style: italic;
+    max-width: 80%;
+    text-align: center;
+}
+
+/* Input Styles */
+.message-input-container {
+    padding: 20px;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--background-color);
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+#messageInput {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    background-color: var(--secondary-color);
+    color: var(--text-primary);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#messageInput:focus {
+    border-color: var(--primary-color);
+}
+
+.input-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.connection-status.connected {
+    color: var(--success-color);
+}
+
+.connection-status.disconnected {
+    color: var(--error-color);
+}
+
+/* Button Styles */
+.icon-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.icon-btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-primary);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 24px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #0073e6;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: var(--background-color);
+    border-radius: 12px;
+    padding: 0;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    padding: 20px 20px 0;
+}
+
+.modal-header h3 {
+    margin-bottom: 8px;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-body input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--secondary-color);
+    color: var(--text-primary);
+    margin-top: 8px;
+}
+
+.modal-footer {
+    padding: 0 20px 20px;
+    text-align: right;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 80px;
+    }
+    
+    .user-info, .active-users h3, .chat-info p, .chat-info small {
+        display: none;
+    }
+    
+    .message {
+        max-width: 85%;
+    }
+}

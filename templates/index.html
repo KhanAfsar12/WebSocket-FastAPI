@@ -3,13 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FastApi Websocket</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>ChatApp</title>
 </head>
 <body>
-    <h1>FastAPI Websocket Demo</h1>
+    <div class="app-container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="user-profile">
+                    <div class="avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <span class="username" id="currentUsername">You</span>
+                        <span class="status">Online</span>
+                    </div>
+                </div>
+                <div class="sidebar-actions">
+                    <button class="icon-btn" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="active-users">
+                <h3>Active Users (<span id="activeUsersCount">0</span>)</h3>
+                <div id="usersList" class="users-list">
+                </div>
+            </div>
+            <div class="chat-info">
+                <p>FastAPI WebSocket Chat</p>
+                <small>Real time messaging</small>
+            </div>
+        </div>
 
-    <script>
-        const ws = new WebSocket();
-    </script>
+        <div class="main-chat">
+            <div class="chat-header">
+                <div class="chat-info">
+                    <div class="chat-avatar">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div>
+                        <h3>Group Chat</h3>
+                        <span id="onlineStatus"><span id="activeUsers">0</span>users online</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <button class="icon-btn" id="clearChat">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="messages-container" id="messagesContainer">
+                <div class="welcome-message">
+                    <i class="fas fa-comments"></i>
+                    <h3>Welcome to ChatApp</h3>
+                    <p>Start sending messages to begin the conversation</p>
+                </div>
+            </div>
+
+            <div class="message-input-container">
+                <div class="input-group">
+                    <button class="icon-btn" id="emojiBtn">
+                        <i class="far fa-smile"></i>
+                    </button>
+                    <input type="text" id="messageInput" placeholder="Type a message..." maxlength="500">
+                    <button class="icon-btn" id="sendBtn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="input-footer">
+                    <span id="charCount">0/500</span>
+                    <span class="connection-status" id="connectionStatus">
+                        <i class="fas fa-circle"></i> Connecting...
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="usernameModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Welcome to ChatApp</h3>
+            </div>
+            <div class="modal-body">
+                <p>Enter your username to start chatting</p>
+                <input type="text" id="usernameInput" placeholder="Your username" maxlength="20">
+            </div>
+            <div class="modal-footer">
+                <button id="joinChat" class="btn-primary">Join Chat</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/script.js"></script>
 </body>
 </html>
