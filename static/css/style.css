@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -30,7 +30,7 @@
     --border-color: #3e4042;
 }
 
-body{
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--background-color);
     color: var(--text-primary);
@@ -38,12 +38,13 @@ body{
     overflow: hidden;
 }
 
-.app-container{
+.app-container {
     display: flex;
     height: 100vh;
 }
 
-.sidebar{
+/* Sidebar Styles */
+.sidebar {
     width: 300px;
     background-color: var(--sidebar-bg);
     border-right: 1px solid var(--border-color);
@@ -51,7 +52,7 @@ body{
     flex-direction: column;
 }
 
-.sidebar-header{
+.sidebar-header {
     padding: 20px;
     border-bottom: 1px solid var(--border-color);
     display: flex;
@@ -59,13 +60,13 @@ body{
     align-items: center;
 }
 
-.user-profile{
+.user-profile {
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
-.avatar{
+.avatar {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -76,44 +77,44 @@ body{
     color: white;
 }
 
-.user-info{
+.user-info {
     display: flex;
     flex-direction: column;
 }
 
-.username{
+.username {
     font-weight: 600;
 }
 
-.status{
+.status {
     font-size: 12px;
     color: var(--success-color);
 }
 
-.sidebar-actions{
+.sidebar-actions {
     display: flex;
     gap: 8px;
 }
 
-.active-users{
+.active-users {
     padding: 20px;
     flex-grow: 1;
     overflow-y: auto;
 }
 
-.active-users h3{
+.active-users h3 {
     margin-bottom: 15px;
     color: var(--text-secondary);
     font-size: 14px;
 }
 
-.users-list{
+.users-list {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.user-item{
+.user-item {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -122,18 +123,18 @@ body{
     transition: background-color 0.2s;
 }
 
-.user-item:hover{
+.user-item:hover {
     background-color: var(--secondary-color);
 }
 
-.user-status{
+.user-status {
     width: 8px;
     height: 8px;
     border-radius: 50%;
     background-color: var(--success-color);
 }
 
-.chat-info{
+.chat-info {
     padding: 20px;
     border-top: 1px solid var(--border-color);
     text-align: center;
@@ -141,13 +142,14 @@ body{
     font-size: 12px;
 }
 
-.main-chat{
+/* Main Chat Styles */
+.main-chat {
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
-.chat-header{
+.chat-header {
     padding: 15px 20px;
     border-bottom: 1px solid var(--border-color);
     display: flex;
@@ -156,13 +158,13 @@ body{
     background-color: var(--background-color);
 }
 
-.chat-info{
+.chat-info {
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
-.chat-avatar{
+.chat-avatar {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -173,12 +175,12 @@ body{
     color: white;
 }
 
-.chat-actions{
+.chat-actions {
     display: flex;
     gap: 8px;
 }
 
-.messages-container{
+.messages-container {
     flex: 1;
     padding: 20px;
     overflow-y: auto;
@@ -188,20 +190,21 @@ body{
     gap: 10px;
 }
 
-.welcome-message{
+.welcome-message {
     text-align: center;
     color: var(--text-secondary);
     padding: 40px 20px;
 }
 
-.welcome-message i{
+.welcome-message i {
     font-size: 48px;
     margin-bottom: 16px;
     color: var(--primary-color);
 }
 
-.message{
-    max-width: 70px;
+/* Message Styles */
+.message {
+    max-width: 70%;
     padding: 12px 16px;
     border-radius: 18px;
     margin-bottom: 8px;
@@ -220,8 +223,8 @@ body{
     }
 }
 
-.message.sent{
-    align-self: self-end;
+.message.sent {
+    align-self: flex-end;
     background-color: var(--message-sent);
     color: white;
     border-bottom-right-radius: 4px;

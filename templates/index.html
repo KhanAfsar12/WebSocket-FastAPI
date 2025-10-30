@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatApp - Modern WebSocket Chat</title>
     <link rel="stylesheet" href="/static/css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <title>ChatApp</title>
 </head>
 <body>
     <div class="app-container">
+        <!-- Sidebar -->
         <div class="sidebar">
             <div class="sidebar-header">
                 <div class="user-profile">
@@ -26,18 +27,23 @@
                     </button>
                 </div>
             </div>
+
             <div class="active-users">
                 <h3>Active Users (<span id="activeUsersCount">0</span>)</h3>
                 <div id="usersList" class="users-list">
+                    <!-- Active users will be populated here -->
                 </div>
             </div>
+
             <div class="chat-info">
                 <p>FastAPI WebSocket Chat</p>
-                <small>Real time messaging</small>
+                <small>Real-time messaging</small>
             </div>
         </div>
 
+        <!-- Main Chat Area -->
         <div class="main-chat">
+            <!-- Chat Header -->
             <div class="chat-header">
                 <div class="chat-info">
                     <div class="chat-avatar">
@@ -45,7 +51,7 @@
                     </div>
                     <div>
                         <h3>Group Chat</h3>
-                        <span id="onlineStatus"><span id="activeUsers">0</span>users online</span>
+                        <span id="onlineStatus"><span id="activeUsers">0</span> users online</span>
                     </div>
                 </div>
                 <div class="chat-actions">
@@ -55,14 +61,17 @@
                 </div>
             </div>
 
+            <!-- Messages Container -->
             <div class="messages-container" id="messagesContainer">
                 <div class="welcome-message">
                     <i class="fas fa-comments"></i>
-                    <h3>Welcome to ChatApp</h3>
+                    <h3>Welcome to ChatApp!</h3>
                     <p>Start sending messages to begin the conversation</p>
                 </div>
+                <!-- Messages will be appended here -->
             </div>
 
+            <!-- Message Input -->
             <div class="message-input-container">
                 <div class="input-group">
                     <button class="icon-btn" id="emojiBtn">
@@ -83,6 +92,7 @@
         </div>
     </div>
 
+    <!-- Username Modal -->
     <div class="modal" id="usernameModal">
         <div class="modal-content">
             <div class="modal-header">
